@@ -1,0 +1,12 @@
+---
+description: 
+alwaysApply: true
+---
+
+# Uday's Architectural Constraints (Next.js & React)
+
+1. STRICT TYPING: "No Loose Types." Every interface must be explicitly defined. No `any` types allowed.
+2. SEPARATION OF CONCERNS: "Screens Compose, They Do Not Compute." UI components must be completely dumb. All business logic, data fetching (React Query), and state mutations must happen in custom hooks.
+3. DATA GRIDS: Use `@tanstack/react-table` v8 for all tables. Isolate columns definition from the table UI component.
+4. VISUALS: Use `recharts` for charting. Use Tailwind for styling. Maintain a dark/finance aesthetic (slate, emerald, indigo).
+5. BLAST RADIUS CONTROL: Keep components small and strictly isolated.
