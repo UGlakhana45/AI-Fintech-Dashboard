@@ -1,12 +1,22 @@
 ---
-description: 
+description: Enterprise Fintech Architecture Rules (GOLDH Challenge)
 alwaysApply: true
 ---
 
-# Uday's Architectural Constraints (Next.js & React)
+# Front-End Architecture Constraints (Next.js, React, TypeScript)
 
-1. STRICT TYPING: "No Loose Types." Every interface must be explicitly defined. No `any` types allowed.
-2. SEPARATION OF CONCERNS: "Screens Compose, They Do Not Compute." UI components must be completely dumb. All business logic, data fetching (React Query), and state mutations must happen in custom hooks.
-3. DATA GRIDS: Use `@tanstack/react-table` v8 for all tables. Isolate columns definition from the table UI component.
-4. VISUALS: Use `recharts` for charting. Use Tailwind for styling. Maintain a dark/finance aesthetic (slate, emerald, indigo).
-5. BLAST RADIUS CONTROL: Keep components small and strictly isolated.
+1. STRICT TYPING & SCHEMAS: No `any` types. All API payloads and internal state objects must be typed using Zod schemas for runtime validation and inferred TypeScript types.
+2. SERVER VS. CLIENT STATE (THE FOUNDER RULE):
+   - Never mix UI state with server data.
+   - SERVER STATE: Use `@tanstack/react-query` for all market data. Implement aggressive caching, background refetching, and stale-time configurations to handle "real-time vs. cached" flows.
+   - CLIENT STATE: Use `zustand` for global UI state (e.g., `useAuthStore`, `usePaywallStore`, `useThemeStore`).
+3. COMPONENT COMPOSITION (SCALABILITY):
+   - Follow Atomic Design principles.
+   - UI components (Buttons, Cards, Grids) must be pure and "dumb" (accepting only props).
+   - Smart components (Views/Modules) handle the `useQuery` hooks and pass data down.
+4. MULTI-MODULE FEATURE SLICING: Do not put everything in `/components`. Group by feature domain: `src/features/pulse`, `src/features/whale-watch`, `src/features/paywall`.
+5. DATA GRIDS & VIRTUALIZATION: Use `@tanstack/react-table` v8 for all asset tables (Crypto, Equities). Isolate column definitions.
+6. DESIGN SYSTEM:
+   - Theme: Ultra-dark institutional aesthetic (bg-black, slate-900 surfaces) with Gold/Amber primary accents (`amber-400`).
+   - Use `shadcn/ui` combined with Tailwind CSS for baseline accessible components.
+   - Use `lucide-react` for consistent iconography.

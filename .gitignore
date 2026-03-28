@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.cursorrules
+AGENTS.md
+
 # dependencies
 /node_modules
 /.pnp
@@ -23,6 +26,10 @@
 # misc
 .DS_Store
 *.pem
+
+# Local reference only (e.g. devtools / design export). Not used by the app — implement UI in src/.
+/elementCode
+/elementCode/
 
 # debug
 npm-debug.log*
