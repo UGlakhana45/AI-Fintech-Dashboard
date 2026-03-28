@@ -21,7 +21,7 @@ export function LearnView() {
         </p>
       </div>
 
-      <article className="overflow-hidden rounded-3xl border border-zinc-800/80 bg-[#0A0A0A]">
+      <article className="overflow-hidden rounded-3xl border border-zinc-800/80 bg-[#0A0A0A] transition-colors duration-200 hover:border-amber-400/25 hover:bg-zinc-900/20">
         <div className="space-y-4 p-6 sm:p-8">
           <div className="text-center">
             <div className="mx-auto mb-3 h-px w-12 bg-amber-400/80" />

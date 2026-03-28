@@ -60,7 +60,7 @@ export function PremiumGate({
         <button
           type="button"
           onClick={handleCta}
-          className="mt-6 w-full max-w-xs rounded-xl bg-amber-400 py-3 text-sm font-bold uppercase tracking-wide text-black shadow-lg shadow-amber-400/20 transition hover:bg-amber-300"
+          className="mt-6 w-full max-w-xs rounded-xl bg-amber-400 py-3 text-sm font-bold uppercase tracking-wide text-black shadow-lg shadow-amber-400/20 transition hover:bg-amber-300 hover:shadow-amber-400/30 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         >
           {ctaLabel}
         </button>

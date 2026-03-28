@@ -1,5 +1,6 @@
 "use client";
 
+import { TierSelectChip } from "@/features/paywall/components/TierSelectChip";
 import type { SubscriptionTier } from "@/stores/usePaywallStore";
 import { usePaywallStore } from "@/stores/usePaywallStore";
 import { Key, Sparkles, User } from "lucide-react";
@@ -105,20 +106,18 @@ export function ProfilePageClient() {
         <p className="mt-3 text-[10px] font-bold uppercase tracking-wide text-zinc-500">
           Demo tier (also on More)
         </p>
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div
+          className="mt-2 flex flex-wrap gap-2"
+          role="group"
+          aria-label="Subscription tier"
+        >
           {TIERS.map((t) => (
-            <button
+            <TierSelectChip
               key={t}
-              type="button"
-              onClick={() => setTier(t)}
-              className={`rounded-lg border px-3 py-1.5 text-xs font-semibold capitalize ${
-                tier === t
-                  ? "border-amber-400/60 bg-amber-400/10 text-amber-400"
-                  : "border-zinc-800 text-zinc-400 hover:border-zinc-600"
-              }`}
-            >
-              {t}
-            </button>
+              tier={t}
+              selected={tier === t}
+              onSelect={setTier}
+            />
           ))}
         </div>
       </section>
@@ -174,7 +173,7 @@ export function ProfilePageClient() {
           />
           <button
             type="submit"
-            className="w-full rounded-xl bg-amber-400 py-3 text-sm font-bold text-black hover:bg-amber-300"
+            className="w-full rounded-xl bg-amber-400 py-3 text-sm font-bold text-black transition-colors hover:bg-amber-300 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
           >
             Change password
           </button>

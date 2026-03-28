@@ -29,7 +29,7 @@ export function HomePageClient() {
         You are viewing delayed data.{" "}
         <Link
           href="/pricing"
-          className="font-semibold text-amber-400 underline underline-offset-2"
+          className="font-semibold text-amber-400 underline underline-offset-2 outline-none transition-colors hover:text-amber-300 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-amber-400/50"
         >
           Upgrade to Essentials
         </Link>{" "}
@@ -88,7 +88,7 @@ export function HomePageClient() {
               </span>
               <Link
                 href="/pricing"
-                className="mt-2 inline-block text-[10px] font-bold uppercase tracking-wider text-amber-400"
+                className="mt-2 inline-block rounded-md text-[10px] font-bold uppercase tracking-wider text-amber-400 outline-none transition-colors hover:text-amber-300 focus-visible:ring-2 focus-visible:ring-amber-400/50"
               >
                 Upgrade to Essential
               </Link>
@@ -117,7 +117,7 @@ export function HomePageClient() {
               <Link
                 key={a.id}
                 href={assetDetailHref(a.id)}
-                className="rounded-xl border border-zinc-800/80 bg-[#0A0A0A] p-3 transition hover:border-amber-400/35 hover:bg-zinc-900/40"
+                className="rounded-xl border border-zinc-800/80 bg-[#0A0A0A] p-3 outline-none transition hover:border-amber-400/35 hover:bg-zinc-900/40 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-amber-400/45"
               >
                 <p className="text-sm font-bold text-amber-400">{a.symbol}</p>
                 <p className="truncate text-[10px] uppercase text-zinc-500">

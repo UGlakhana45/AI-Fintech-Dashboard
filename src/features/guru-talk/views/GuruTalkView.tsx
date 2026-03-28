@@ -46,10 +46,10 @@ export function GuruTalkView() {
         <button
           type="button"
           onClick={() => setFilterOpen((v) => !v)}
-          className={`flex size-11 shrink-0 items-center justify-center rounded-xl border transition-colors ${
+          className={`flex size-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/45 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
             filterOpen
               ? "border-amber-400/50 bg-amber-400/10 text-amber-400"
-              : "border-zinc-800 bg-[#0A0A0A] text-zinc-400 hover:border-zinc-600 hover:text-white"
+              : "border-zinc-800 bg-[#0A0A0A] text-zinc-400 hover:border-amber-400/35 hover:bg-zinc-900/70 hover:text-white"
           }`}
           aria-pressed={filterOpen}
           aria-label="Filters"

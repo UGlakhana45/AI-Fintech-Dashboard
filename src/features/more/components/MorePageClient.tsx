@@ -1,5 +1,6 @@
 "use client";
 
+import { TierSelectChip } from "@/features/paywall/components/TierSelectChip";
 import type { SubscriptionTier } from "@/stores/usePaywallStore";
 import { usePaywallStore } from "@/stores/usePaywallStore";
 import { ChevronRight } from "lucide-react";
@@ -34,20 +35,18 @@ export function MorePageClient() {
         <p className="mt-1 text-xs text-zinc-500">
           Toggle to verify PremiumGate across Catalyst and Whale.
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div
+          className="mt-3 flex flex-wrap gap-2"
+          role="group"
+          aria-label="Subscription tier"
+        >
           {TIERS.map((t) => (
-            <button
+            <TierSelectChip
               key={t}
-              type="button"
-              onClick={() => setTier(t)}
-              className={`rounded-lg border px-3 py-1.5 text-xs font-semibold capitalize ${
-                tier === t
-                  ? "border-amber-400/60 bg-amber-400/10 text-amber-400"
-                  : "border-zinc-800 text-zinc-400 hover:border-zinc-600"
-              }`}
-            >
-              {t}
-            </button>
+              tier={t}
+              selected={tier === t}
+              onSelect={setTier}
+            />
           ))}
         </div>
       </section>
@@ -65,10 +64,10 @@ export function MorePageClient() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="flex items-center justify-between px-4 py-3 text-sm font-medium text-white hover:bg-zinc-900/50"
+                className="group flex items-center justify-between px-4 py-3 text-sm font-medium text-white outline-none transition-colors hover:bg-zinc-900/70 hover:text-amber-100/95 focus-visible:bg-zinc-900 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-400/35 active:bg-zinc-900"
               >
                 {item.label}
-                <ChevronRight className="size-4 text-zinc-600" />
+                <ChevronRight className="size-4 shrink-0 text-zinc-600 transition-colors group-hover:text-amber-400/80" />
               </Link>
             </li>
           ),

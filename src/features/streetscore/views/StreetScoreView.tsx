@@ -37,7 +37,7 @@ export function StreetScoreView() {
           {["AAPL", "MSFT", "NVDA", "META", "AMZN", "GOOGL"].map((s) => (
             <div
               key={s}
-              className="rounded-xl border border-zinc-800 bg-black/40 p-4"
+              className="rounded-xl border border-zinc-800 bg-black/40 p-4 transition-colors hover:border-amber-400/35 hover:bg-zinc-900/35"
             >
               <p className="text-lg font-bold text-white">{s}</p>
               <p className="text-xs text-zinc-500">Score · Grade · Signal</p>
